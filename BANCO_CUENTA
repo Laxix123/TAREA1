@@ -1,0 +1,58 @@
+package com.mycompany.banco;
+
+import java.util.Scanner;
+
+public class Banco {
+
+    public static void main(String[] args) {
+        
+        Scanner entrada = new Scanner (System.in);
+        String titular = "";
+        double saldo = 0;
+        double cantidad = 0;
+        int op;
+        int opcion ;
+        System.out.println("\n ---- Bienvenido a Banco Estado ---- ");
+        System.out.println("\n-----------------------------------------");
+        System.out.println("Ingrese su rut con el formato -> (**.***.***-*) ");
+        titular = entrada.nextLine();
+        System.out.println("\n-----------------------------------------");
+        
+        CuentaBancaria Cuenta1 = new CuentaBancaria(titular , saldo);
+        do {
+            System.out.println("Seleccione una opción");
+            System.out.println("[1].- Ingresar Dinero ");
+            System.out.println("[2].- Retirar Dinero");
+            System.out.println("[3].- Mostrar saldo");
+            System.out.println("[4].- Salir ");
+            op = entrada.nextInt();
+            System.out.println("------------------------------");
+            switch (op){
+                case 1:
+                    System.out.println(" Ingrese el monto a Ingresar ");
+                    saldo = entrada.nextDouble();
+                    Cuenta1.Depositar(saldo);
+                    System.out.println("");
+                    break;
+                case 2 :
+                    System.out.println(" Ingrese el monto a Retirar ");
+                    cantidad = entrada.nextDouble();
+                    Cuenta1.Retirar(cantidad);
+                    System.out.println("");
+                    break;
+                case 3:
+                    System.out.println("-------------------------");
+                    Cuenta1.MostrarSaldo();
+                    System.out.println("-------------------------");
+                    break;
+                case 4 :
+                    System.out.println("Nos vemos Crick . . . ");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");    
+            }  
+        } while (op != 4 );
+        entrada.close();
+        
+    }
+}
