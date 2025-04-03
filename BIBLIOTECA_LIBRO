@@ -1,0 +1,73 @@
+package com.mycompany.biblioteca;
+
+import java.util.Scanner;
+
+public class Biblioteca {
+
+    public static void main(String[] args) {
+      
+        Scanner entrada = new Scanner(System.in);
+        
+        String Titulo ;
+        String Autor ;
+        int AñoPublicacion ;
+        int opcion;
+        int op;
+        
+        Titulo = "Black Clover";
+        Autor = "Yūki Tabata";
+        AñoPublicacion = 2015;   
+        Libro libro1 = new Libro(Titulo,Autor,AñoPublicacion);        
+        do {
+            System.out.println("\n ---BIENVENIDO A LA BIBLIOTECA ONLINE ---");
+            System.out.println("!!! Por ahora solo tenemos un Libro !!! : " );
+            System.out.println("[1].- El libro es :  " + Titulo);
+            System.out.println("[2].- Devolver Libro");
+            System.out.println("[3].- Salir");
+            opcion = entrada.nextInt();
+            
+            switch(opcion){
+                case 1 :
+                    System.out.println("Usted escogio el Libro : " + Titulo );
+                    System.out.println("--------------------------------");
+                    libro1.mostrarDetalle();
+                    System.out.println("--------------------------------");
+                    System.out.println("Desea Reservarlo");
+                    System.out.println("***********");
+                    System.out.println("[1].- Si");
+                    System.out.println("[2].- No");
+                    System.out.println("***********");
+                    op = entrada.nextInt();
+                    switch(op){
+                        case 1 :
+                            System.out.println(" Loading...  ");
+                            libro1.Prestar(); 
+                           
+                            break;
+                        case 2 :
+                            System.out.println("No se reservo , Volviendo al Menú");
+                            System.out.println("\n");
+                            break;
+                    }
+                    break;
+                case 2 :
+                    System.out.println(" USTED QUIERE DEVOLVER EL LIBRO :  " + Titulo);
+                    System.out.println("[1].- Si");
+                    System.out.println("[2].- No");
+                    op = entrada.nextInt();
+                    if (op == 1) {
+                        libro1.Devolver();
+                    }else{
+                        System.out.println("Volviendo al menú");
+                    }
+                    break;
+                case 3 :
+                    System.out.println("Nos vemos, gracias por usar la biblioteca.");
+                    break;
+                default:
+                    System.out.println(" ❌ Opción no válida. Intente de nuevo.");
+            }
+        } while (opcion != 3);
+        entrada.close();
+    }
+}
