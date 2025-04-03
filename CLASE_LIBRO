@@ -1,0 +1,40 @@
+package com.mycompany.biblioteca;
+public class Libro {
+    private String titulo;
+    private String autor;
+    private int añoPublicacion;
+    private boolean disponibilidad;
+    public Libro(String Titulo,String Autor,int añoPublicacion){
+        this.titulo = Titulo;
+        this.autor = Autor;
+        this.añoPublicacion = añoPublicacion;
+        this.disponibilidad = true;
+    }
+    public void Prestar(){
+        if (disponibilidad) {
+            System.out.println("EL LIBRO ESTÁ DISPONIBLE - PRESTADO CON EXITO ");
+            disponibilidad = false ;
+        }else{
+            
+            System.out.println("EL LIBRO YA ESTÁ PRESTADO - NO ES POSIBLE PRESTARLO");
+        }  
+    }
+    public void Devolver(){
+    
+        if (!disponibilidad) {
+            System.out.println("Se devolvio con exito el Libro");
+            System.out.println("Volviendo . . . . ");
+            System.out.println("");
+            disponibilidad = true;
+        }else{
+            System.out.println("EL LIBRO YA ESTABA DEVUELTO");
+        }
+    }
+    public void mostrarDetalle(){
+    
+        System.out.println("\n El Titulo del Libro es : " + titulo);
+        System.out.println("\n El Autor del Libro es : " + autor);
+        System.out.println("\n El Año de Publicación del Libro es : " + añoPublicacion);
+        System.out.println("\n El Libro se encuentra : " + disponibilidad);
+    }
+}
