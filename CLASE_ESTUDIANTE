@@ -31,3 +31,4 @@ public class Estudiante {
         System.out.println("Estado: " + (aprobo() ? "Aprobado" : "Reprobado"));
     }
 }
+cómo hago un metodo llamado calcular promedio , con las notas de cada estudiante ingresado 
