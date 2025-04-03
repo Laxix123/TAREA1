@@ -1,0 +1,37 @@
+package com.mycompany.rectangulo;
+
+
+public class ClaseRectangulo {
+    private double ancho;
+    private double alto;
+
+
+
+    //metodo constructor
+    public ClaseRectangulo (double ancho, double alto){
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    //metodo calcular area
+    public double calcularArea(){
+         return   altoancho;
+
+    }
+
+    //metodo para calucular el perimetro
+    public double calcularPerimetro(){
+        return 2 (alto + ancho);
+
+
+    }
+
+    //mostrar detalles
+    public void mostrarDetalles(){
+        System.out.println("Ancho: " + ancho);
+        System.out.println("Alto: " + alto);
+        System.out.println("area: " + calcularArea() );
+        System.out.println("perímetro: " + calcularPerimetro() );
+    }
+
+}
