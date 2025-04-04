@@ -1,0 +1,44 @@
+package com.mycompany.cafetera;
+
+public class Class_Cafetera {
+    private double capacidadMaxima ;
+    private double cantidadActual ;
+    
+    public Class_Cafetera(double capacidadMaxima){
+        this.capacidadMaxima = capacidadMaxima;
+        this.cantidadActual = 0;
+    }
+    public void LlenarCafetera(){
+        this.cantidadActual = capacidadMaxima;
+        System.out.println(" La cafetera se lleno ");
+    }
+    public void ServirTaza(double cantidad){
+        if (cantidadActual >= cantidad) {
+            cantidadActual -= cantidad;
+            System.out.println(" La Taza se sirvio con : " + cantidad + "ml de Café");
+        }else{
+            System.out.println("No hay suficiente Café. Solo hay : " + cantidadActual);
+            cantidadActual = 0;
+        }
+    }
+    public void VaciarCafetera(){
+        cantidadActual = 0;
+        System.out.println(" Cafetera vacía.");
+    }
+    public void AgregarCafe(double cantidad){
+        double espacioDisponible = capacidadMaxima - cantidadActual;
+
+        if (cantidad <= espacioDisponible) {
+            cantidadActual += cantidad;
+            System.out.println("Se agregaron " + cantidad + " ml de café.");
+        } else {
+            cantidadActual += espacioDisponible; 
+            System.out.println("Solo se agregaron " + espacioDisponible + " ml de café. El resto del cafe lo retiramos.");
+        }
+    }
+    public void mostrarEstado() {
+        System.out.println("===============================================");
+        System.out.println(" Cantidad actual de café: " + cantidadActual + " ml / " + capacidadMaxima + " ml.");
+        System.out.println("===============================================");
+    }
+}   
