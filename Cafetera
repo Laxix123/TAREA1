@@ -1,0 +1,58 @@
+package com.mycompany.cafetera;
+
+import java.util.Scanner;
+
+public class Cafetera {
+
+    public static void main(String[] args) {
+        
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Ingresa la capacidad máxima de la cafetera (en ml): ");
+        double capacidadMaxima = entrada.nextDouble();
+        Class_Cafetera cafetera = new Class_Cafetera(capacidadMaxima);
+        
+        int opcion;
+        do {
+            System.out.println("===============================================");
+            System.out.println("\n===== MENÚ CAFETERA =====");
+            System.out.println("1. Llenar cafetera");
+            System.out.println("2. Servir taza");
+            System.out.println("3. Vaciar cafetera");
+            System.out.println("4. Agregar café");
+            System.out.println("5. Mostrar estado");
+            System.out.println("6. Salir");
+            System.out.print("Ingrese una opción: ");
+            System.out.println("===============================================");
+            opcion = entrada.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    cafetera.LlenarCafetera();
+                    break;
+                case 2:
+                    System.out.println("¿Cuántos ml deseas servir? ");
+                    double cantidad = entrada.nextDouble();
+                    cafetera.ServirTaza(cantidad);
+                    break;
+                case 3:
+                    cafetera.VaciarCafetera();
+                    break;
+                case 4:
+                    System.out.println("¿Cuántos ml de café quiere agregar? ");
+                    double agregar = entrada.nextDouble();
+                    cafetera.AgregarCafe(agregar);
+                    break;
+                case 5:
+                    cafetera.mostrarEstado();
+                    break;
+                case 6:
+                    System.out.println("== NOS VEMOS ==");
+                    break;
+                default:
+                    System.out.println(" ingrese una opcion valida porfavor");
+            }
+        } while (opcion != 6);
+
+        entrada.close(); 
+    }
+}
