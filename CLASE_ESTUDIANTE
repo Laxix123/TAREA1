@@ -1,7 +1,7 @@
 package com.mycompany.promedio;
 
 public class Estudiante {
-
+    
     private String nombre;
     private int edad;
     private double[] notas;
@@ -13,15 +13,21 @@ public class Estudiante {
     }
 
     public double calcularPromedio() {
+        
         double suma = 0;
         for (double nota : notas) {
             suma += nota;
         }
         return suma / notas.length;
+        // profe aquí utilize el " for-each " donde defino un atributo 
+        // con el mismo tipo de dato que es " nota " y ese atributo toma
+        // todas las notas ingresadas y las guarda en " notas " y abajito 
+        // hace suma de las notas y luego retorna la suma y las divide por la
+        // cantidad de notas ingresadas
     }
 
     public boolean aprobo() {
-        return calcularPromedio() >= 6.0; 
+        return calcularPromedio() >= 6.0;
     }
 
     public void mostrarInformacion() {
@@ -29,6 +35,7 @@ public class Estudiante {
         System.out.println("Edad: " + edad);
         System.out.println("Promedio: " + calcularPromedio());
         System.out.println("Estado: " + (aprobo() ? "Aprobado" : "Reprobado"));
+        //utilize el " ? : " , que es lo mismo que utilizar un " if else "
+        // llame al metodo " aprobo " para hacer la verificación si aprobo o no 
     }
 }
-cómo hago un metodo llamado calcular promedio , con las notas de cada estudiante ingresado 
